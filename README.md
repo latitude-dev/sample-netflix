@@ -1,0 +1,1 @@
+# Latitude SDK Sample project
