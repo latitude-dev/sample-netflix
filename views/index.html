@@ -2,4 +2,7 @@
   {% if query.length > 3 %}
     <ChartNode data={% query %} />
   {% endif %}
+  {% for name in query['names'] %}
+      <span>{% name %}</span>
+  {% endfor %}
 </div>
