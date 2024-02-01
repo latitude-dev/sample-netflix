@@ -1,8 +1,9 @@
 <div class='bg-gray-200'>
-  {% if query.length > 3 %}
-    <ChartNode data={% query %} />
+  {% if counters.length  > 3 %}
+    <BarChart data={% counters %} />
   {% endif %}
   {% for name in query['names'] %}
       <span>{% name %}</span>
   {% endfor %}
+  <Table data={% events_enriched %} />
 </div>
