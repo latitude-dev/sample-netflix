@@ -1,10 +1,89 @@
-<div class='bg-gray-200'>
-  <Input name='year' default='2023' min='1900' max='2000' />
-  {% if counters.length  > 3 %}
-    <BarChart data={% counters %} />
-  {% endif %}
-  {% for name in query['names'] %}
-      <span>{% name %}</span>
-  {% endfor %}
-  <Table data={% events_enriched %} />
-</div>
+<View class='bg-white'>
+  <Row gap="4">
+    <Column>
+      <Text.H1>Netflix analysis</Text.H1>
+      <Text.H4>This view shows titles added to Netflix over the years.</Text.H4>
+      <Input
+        name='start_year'
+        label='Start year'
+        type='number'
+        default='2000'
+        min='1900'
+        max='2024'
+      />
+      <Input
+        name='end_year'
+        label='End year'
+        type='number'
+        default='2024'
+        min='1900'
+        max='2024'
+      />
+      {#if params.start_year > params.end_year}
+        <Text.H2>Start year must be before end year</Text.H2>
+      {:else}
+        <RunButton>
+          Run view
+        </RunButton>
+      {/if}
+    </Column>
+    <Column>
+      <LineChart
+        label="Timeline by year and type"
+        info={{ showLegend: true }}
+        axisFormat={{ showMarks: true, showTitles: true }}
+        data={{
+          query: latitude.query('titles'),
+          dimension: 'release_year',
+          metrics: [{ column_name: 'id' }],
+        }}
+      />
+    </Column>
+    <Column>
+      <PieChart
+        label="Distribution by type"
+        info={{ showLegend: true, showValues: true }}
+        data={{
+          query: latitude.query('titles'),
+          dimension: 'type',
+          metrics: [{ column_name: 'id' }],
+        }}
+      />
+    </Column>
+  </Row>
+  <Row>
+    <Column>
+      <BarChart
+        label="Top production countries"
+        info={{ showLegend: true, showValues: true }}
+        axisFormat={{ showMarks: true, showTitles: true }}
+        data={{
+          query: latitude.query('counters'),
+          dimension: 'clean_countries',
+          metrics: [{ column_name: 'count' }],
+        }}
+      />
+    </Column>
+    <Column>
+      <BarChart
+        label="Top production countries split by type"
+        info={{ showLegend: true, showValues: true }}
+        axisFormat={{ showMarks: true, showTitles: true }}
+        data={{
+          query: latitude.query('counters'),
+          dimension: 'country',
+          metrics: [{ column_name: 'movie_rate' }, { column_name: 'show_rate' }],
+        }}
+      />
+    </Column>
+  </Row>
+  <Row>
+    <Column>
+      <Table
+        data={{ query: latitude.query('counters') }}
+        label="All titles"
+        download="false"
+      />
+    </Column>
+  </Row>
+</View>
