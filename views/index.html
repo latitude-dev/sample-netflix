@@ -19,9 +19,9 @@
         min='1900'
         max='2024'
       />
-      {if params.start_year > params.end_year}
+      {#if params.start_year > params.end_year}
         <Text.H2>Start year must be before end year</Text.H2>
-      {else}
+      {:else}
         <RunButton>
           Run view
         </RunButton>
@@ -75,6 +75,7 @@
           metrics: [{ column_name: 'movie_rate' }, { column_name: 'show_rate' }],
         }}
       />
+    </Column>
   </Row>
   <Row>
     <Column>
