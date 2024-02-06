@@ -1,70 +1,66 @@
-{% extends '_layout.html' %}
-{% block view %}
-  <View class='bg-white'>
-    <Row gap="4">
-      <Column>
-        <Text size="h1">Netflix analysis</Text>
-        <Text size="p">This view shows titles added to Netflix over the years.</Text>
-        <Input
-          name='start_year'
-          label='Start year'
-          type='number'
-          default='2000'
-          min='1900'
-          max='2024'
-        />
-        <Input
-          name='end_year'
-          label='End year'
-          type='number'
-          default='2024'
-          min='1900'
-          max='2024'
-        />
-        <Button
-          {# missing config #}
-        >
+<View class='bg-white'>
+  <Row gap="4">
+    <Column>
+      <Text.H1>Netflix analysis</Text.H1>
+      <Text.H4>This view shows titles added to Netflix over the years.</Text.H4>
+      <Input
+        name='start_year'
+        label='Start year'
+        type='number'
+        default='2000'
+        min='1900'
+        max='2024'
+      />
+      <Input
+        name='end_year'
+        label='End year'
+        type='number'
+        default='2024'
+        min='1900'
+        max='2024'
+      />
+      {if params.start_year > params.end_year}
+        <Text.H2>Start year must be before end year</Text.H2>
+      {else}
+        <RunButton>
           Run view
-        </Button>
-      </Column>
-      <Column>
-        <LineChart
-          data={% titles %}
-          label="Timeline by year and type"
-          {# missing config #}
-        />
-      </Column>
-      <Column>
-        <PieChart
-          data={% titles %}
-          label="Distribution by type"
-          {# missing config #}
-        />
-      </Column>
-    </Row>
-    <Row>
-      <Column>
-        <BarChart
-          data={% counters %}
-          label="Top production countries"
-          {# missing config #}
-        />
-      </Column>
-      <Column>
-        <BarChart
-          data={% counters %}
-          label="Top production countries split by type"
-          {# missing config #}
-        />
-    </Row>
-    <Row>
-      <Column>
-        <Table
-          data={% titles %}
-          label="All titles"
-          download="false"
-        />
-      </Column>
-    </Row>
-  </View>
-{% endblock %}
+        </RunButton>
+      {/if}
+    </Column>
+    <Column>
+      <LineChart
+        data={titles}
+        label="Timeline by year and type"
+        {# missing config #}
+      />
+    </Column>
+    <Column>
+      <PieChart
+        data={titles}
+        label="Distribution by type"
+      />
+    </Column>
+  </Row>
+  <Row>
+    <Column>
+      <BarChart
+        data={counters}
+        label="Top production countries"
+      />
+    </Column>
+    <Column>
+      <BarChart
+        data={counters}
+        label="Top production countries split by type"
+      />
+  </Row>
+  <Row>
+    <Column>
+      <Table
+        data={titles}
+        label="All titles"
+        download="false"
+      />
+    </Column>
+  </Row>
+</View>
