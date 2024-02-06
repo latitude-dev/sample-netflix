@@ -1,6 +1,6 @@
-# Latitude SDK Sample Project
+# Latitude Framework Sample Project
 
-This is a sample project showcasing how to use the Latitude SDK. The Latitude SDK provides a set of tools to help developers build data apps on top of any database or data warehouse using just SQL and HTML.
+This is a proof of concept of a project showcasing how to use the Latitude Framework. The Latitude Framework will provide a set of tools to help developers build data apps on top of any database or data warehouse using just SQL and HTML.
 
 ## Demo
 
@@ -9,8 +9,10 @@ You can find a live demo of this project at the following URL: [Live Demo →](h
 ![image](https://github.com/latitude-dev/latitude-sdk-sample/assets/5465249/371f8e34-dbe5-4684-b684-64022cb1b38b)
 
 ## Developing
+### WIP ### 
+Disclaimer: You can't do anything described from here on forward just yet.
 
-To start developing in this project, first ensure you have the necessary dependencies installed. These include Node.js and the Latitude CLI. You can do so by running:
+To start developing in this project, first ensure you have Node.js >= 18 installed. Then, install the Latitude CLI:
 ```
 npm install -g latitude-cli
 ```
@@ -19,7 +21,7 @@ After cloning the repository, run the following command to spin up the dev serve
 ```
 latitude dev
 ```
-This will start the server in development mode, and you can access the application at `http://localhost:3000`.
+This will start the server in development mode, and you can access the application at `http://localhost:4123`.
 
 ## Deploying
 
