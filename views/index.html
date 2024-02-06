@@ -29,35 +29,57 @@
     </Column>
     <Column>
       <LineChart
-        data={titles}
         label="Timeline by year and type"
-        {# missing config #}
+        info={{ showLegend: true }}
+        axisFormat={{ showMarks: true, showTitles: true }}
+        data={{
+          query: latitude.query('titles'),
+          dimension: 'release_year',
+          metrics: [{ column_name: 'id' }],
+        }}
       />
     </Column>
     <Column>
       <PieChart
-        data={titles}
         label="Distribution by type"
+        info={{ showLegend: true, showValues: true }}
+        data={{
+          query: latitude.query('titles'),
+          dimension: 'type',
+          metrics: [{ column_name: 'id' }],
+        }}
       />
     </Column>
   </Row>
   <Row>
     <Column>
       <BarChart
-        data={counters}
         label="Top production countries"
+        info={{ showLegend: true, showValues: true }}
+        axisFormat={{ showMarks: true, showTitles: true }}
+        data={{
+          query: latitude.query('counters'),
+          dimension: 'clean_countries',
+          metrics: [{ column_name: 'count' }],
+        }}
       />
     </Column>
     <Column>
       <BarChart
-        data={counters}
         label="Top production countries split by type"
+        info={{ showLegend: true, showValues: true }}
+        axisFormat={{ showMarks: true, showTitles: true }}
+        data={{
+          query: latitude.query('counters'),
+          dimension: 'country',
+          metrics: [{ column_name: 'movie_rate' }, { column_name: 'show_rate' }],
+        }}
       />
   </Row>
   <Row>
     <Column>
       <Table
-        data={titles}
+        data={{ query: latitude.query('counters') }}
         label="All titles"
         download="false"
       />
