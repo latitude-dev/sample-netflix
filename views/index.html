@@ -1,11 +1,18 @@
-<View class="flex flex-column">
-  <Row>
-    <Text.H1>Netflix Analysis</Text.H1>
-  </Row>
-  <Row>
-    <RunButton query="titles">Run query</RunButton>
-  </Row>
-  <Row>
-    <Table query="titles" />
-  </Row>
+<View>
+  <Column>
+    <Row>
+      <Column>
+        <Text.H1>Netflix Analysis</Text.H1>
+        <Text.H4>This view shows titles added to Netflix over the years.</Text.H4>
+      </Column>
+    </Row>
+    <Row>
+      <RunButton query="titles">Run query</RunButton>
+    </Row>
+  </Column>
+  <Column>
+    <Row>
+      <Table query="titles" />
+    </Row>
+  </Column>
 </View>
