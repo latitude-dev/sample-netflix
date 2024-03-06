@@ -13,3 +13,4 @@ select country,
        round(movie * 100.0 / total, 2) as movie_rate,
        round(show * 100.0 / total, 2) as show_rate
 from t1
+order by show_rate desc

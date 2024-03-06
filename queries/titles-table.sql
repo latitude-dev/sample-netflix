@@ -5,4 +5,4 @@ select title,
        type,
        imdb_score
 from { ref('titles') }
-limit 10
+limit 100

@@ -1,5 +1,8 @@
-<div class="flex flex-col gap-8 m-8">
-  <div class="flex flex-row max-w-full gap-8">
+<svelte:head>
+  <title>Netflix Analysis</title>
+</svelte:head>
+<div class="flex flex-col gap-8 p-8">
+  <Row class="gap-8">
     <Column class="basis-4/12">
       <Row>
         <Column>
@@ -7,12 +10,23 @@
           <Text.H4>This view shows titles added to Netflix over the years.</Text.H4>
         </Column>
       </Row>
-      <Row>
-        <Input name="start_year" value="2000" />
-        <Input name="end_year" value="2024" />
+      <Row class="mt-4">
+        <Input param="start_year" type="number" value="2000" />
+        <Input param="end_year" type="number" value="2024" />
       </Row>
       <Row>
-        <RunButton query="titles">Run query</RunButton>
+        <RunButton
+          class="mt-2"
+          queries={[
+            "titles-year-type",
+            "titles-type",
+            "titles-top-countries",
+            "titles-type-top-countries",
+            "titles-table"
+          ]}
+        >
+          Run query
+        </RunButton>
       </Row>
     </Column>
     <Column class="basis-4/12">
@@ -33,10 +47,13 @@
         x='type'
         y='count'
         title='Titles by type'
+        config={{
+          showHole: true
+        }}
       />
     </Column>
-  </div>
-  <div class="flex flex-row max-w-full">
+  </Row>
+  <Row class="gap-8">
     <Column class="basis-6/12">
       <Row>
         <MixedChart
@@ -64,12 +81,12 @@
         />
       </Row>
     </Column>
-  </div>
-  <div class="flex flex-row max-w-full">
+  </Row>
+  <Row>
     <Column>
       <Row>
         <Table query="titles-table" />
       </Row>
     </Column>
-  </div>
+  </Row>
 </div>
