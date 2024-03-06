@@ -3,7 +3,7 @@ with t1 as(
         count(*) as total,
         sum(case when type = 'MOVIE' then 1 else null end) as movie,
         sum(case when type = 'SHOW' then 1 else null end) as show
-    from {ref('titles')}
+    from {ref('titles/titles')}
     where clean_countries[1] != ''
     group by 1
     order by 2 desc

@@ -4,5 +4,5 @@ select title,
        runtime,
        type,
        imdb_score
-from { ref('titles') }
+from { ref('titles/titles') }
 limit 100

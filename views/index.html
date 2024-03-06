@@ -6,7 +6,7 @@
     <Column class="basis-4/12">
       <Row>
         <Column>
-          <Text.H1>Netflix Analysis</Text.H1>
+          <Text.H1 class="font-bold">Netflix Analysis</Text.H1>
           <Text.H4>This view shows titles added to Netflix over the years.</Text.H4>
         </Column>
       </Row>
@@ -18,11 +18,11 @@
         <RunButton
           class="mt-2"
           queries={[
-            "titles-year-type",
-            "titles-type",
-            "titles-top-countries",
-            "titles-type-top-countries",
-            "titles-table"
+            "titles/titles-year-type",
+            "titles/titles-type",
+            "titles/titles-top-countries",
+            "titles/titles-type-top-countries",
+            "titles/titles-table"
           ]}
         >
           Run query
@@ -31,7 +31,7 @@
     </Column>
     <Column class="basis-4/12">
       <MixedChart
-        query='titles-year-type'
+        query='titles/titles-year-type'
         x='release_year'
         y={[
         {name: 'count_shows', chartType: 'line'},
@@ -43,7 +43,7 @@
     </Column>
     <Column class="basis-4/12">
       <PieChart
-        query='titles-type'
+        query='titles/titles-type'
         x='type'
         y='count'
         title='Titles by type'
@@ -57,7 +57,7 @@
     <Column class="basis-6/12">
       <Row>
         <MixedChart
-          query='titles-top-countries'
+          query='titles/titles-top-countries'
           x='country'
           y={[
           {name: 'count', chartType: 'bar'},
@@ -70,7 +70,7 @@
     <Column class="basis-6/12">
       <Row>
         <MixedChart
-          query='titles-type-top-countries'
+          query='titles/titles-type-top-countries'
           x='country'
           y={[
           {name: 'movie_rate', chartType: 'bar'},
@@ -85,7 +85,7 @@
   <Row>
     <Column>
       <Row>
-        <Table query="titles-table" />
+        <Table query="titles/titles-table" />
       </Row>
     </Column>
   </Row>
