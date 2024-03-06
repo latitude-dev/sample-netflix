@@ -3,6 +3,7 @@ select title,
        release_year,
        runtime,
        type,
-       imdb_score
+       imdb_score,
+       main_country
 from { ref('titles/titles') }
 limit 100
