@@ -1,18 +1,75 @@
-<View>
-  <Column>
-    <Row>
-      <Column>
-        <Text.H1>Netflix Analysis</Text.H1>
-        <Text.H4>This view shows titles added to Netflix over the years.</Text.H4>
-      </Column>
-    </Row>
-    <Row>
-      <RunButton query="titles">Run query</RunButton>
-    </Row>
-  </Column>
-  <Column>
-    <Row>
-      <Table query="titles" />
-    </Row>
-  </Column>
-</View>
+<div class="flex flex-col gap-8 m-8">
+  <div class="flex flex-row max-w-full gap-8">
+    <Column class="basis-4/12">
+      <Row>
+        <Column>
+          <Text.H1>Netflix Analysis</Text.H1>
+          <Text.H4>This view shows titles added to Netflix over the years.</Text.H4>
+        </Column>
+      </Row>
+      <Row>
+        <Input name="start_year" value="2000" />
+        <Input name="end_year" value="2024" />
+      </Row>
+      <Row>
+        <RunButton query="titles">Run query</RunButton>
+      </Row>
+    </Column>
+    <Column class="basis-4/12">
+      <MixedChart
+        query='titles-year-type'
+        x='release_year'
+        y={[
+        {name: 'count_shows', chartType: 'line'},
+        {name: 'count_movies', chartType: 'line'},
+        ]}
+        xTitle='Year'
+        yTitle='Titles'
+      />
+    </Column>
+    <Column class="basis-4/12">
+      <PieChart
+        query='titles-type'
+        x='type'
+        y='count'
+        title='Titles by type'
+      />
+    </Column>
+  </div>
+  <div class="flex flex-row max-w-full">
+    <Column class="basis-6/12">
+      <Row>
+        <MixedChart
+          query='titles-top-countries'
+          x='country'
+          y={[
+          {name: 'count', chartType: 'bar'},
+          ]}
+          xTitle='Country'
+          yTitle='Titles'
+        />
+      </Row>
+    </Column>
+    <Column class="basis-6/12">
+      <Row>
+        <MixedChart
+          query='titles-type-top-countries'
+          x='country'
+          y={[
+          {name: 'movie_rate', chartType: 'bar'},
+          {name: 'show_rate', chartType: 'bar'},
+          ]}
+          xTitle='Country'
+          yTitle='Titles'
+        />
+      </Row>
+    </Column>
+  </div>
+  <div class="flex flex-row max-w-full">
+    <Column>
+      <Row>
+        <Table query="titles-table" />
+      </Row>
+    </Column>
+  </div>
+</div>
