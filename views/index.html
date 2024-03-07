@@ -1,7 +1,7 @@
 <svelte:head>
   <title>Netflix Analysis</title>
 </svelte:head>
-<div class="flex flex-col gap-8 p-8">
+<View class="gap-8 p-8">
   <Row class="gap-8">
     <Column class="basis-4/12">
       <Row>
@@ -83,10 +83,6 @@
     </Column>
   </Row>
   <Row>
-    <Column>
-      <Row>
-        <Table query="titles/titles-table" />
-      </Row>
-    </Column>
+    <Table query="titles/titles-table" class='max-w-full max-h-[500px]' />
   </Row>
-</div>
+</View>
