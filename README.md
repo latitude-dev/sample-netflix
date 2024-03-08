@@ -1,4 +1,4 @@
-# Latitude sample project
+# Netflix sample project
 
 This is a project showcasing how to use the Latitude Framework. Latitude provides a set of tools to help developers build data apps on top of any database or data warehouse using just SQL and HTML.
 
@@ -20,16 +20,6 @@ After cloning the repository, run the following command to spin up the dev serve
 latitude dev
 ```
 This will start the server in development mode, and you can access the application at `http://localhost:3000`.
-
-## Project Structure
-
-The project is structured as follows:
-
-`models` - This directory contains the SQL files that define the queries used to fetch data from the database.
-
-`views` - This directory contains the HTML files that define the layout and interface of the application.
-
-Additionally you'll find a `sources.yml` file in the root directory. This file defines the data sources that the project uses. You can add or remove data sources as needed.
 
 ## Documentation
 
