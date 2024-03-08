@@ -5,18 +5,18 @@
   <Row class="gap-8">
     <Column class="basis-4/12">
       <Row>
-        <Column>
-          <Text.H1 class="font-bold">Netflix Analysis</Text.H1>
-          <Text.H4>This view shows titles added to Netflix over the years.</Text.H4>
-        </Column>
+        <Text.H1 class="font-bold">Netflix Analysis</Text.H1>
       </Row>
-      <Row class="mt-4">
+      <Row>
+        <Text.H4>This data app shows titles added to Netflix over the years.</Text.H4>
+      </Row>
+      <Row class="mt-8 gap-4">
         <Input param="start_year" type="number" value="2000" />
         <Input param="end_year" type="number" value="2024" />
       </Row>
       <Row>
         <RunButton
-          class="mt-2"
+          class="mt-8"
           queries={[
             "titles/titles-year-type",
             "titles/titles-type",
@@ -39,6 +39,9 @@
         ]}
         xTitle='Year'
         yTitle='Titles'
+        opts={{
+          reactiveToParams: true
+        }}
       />
     </Column>
     <Column class="basis-4/12">
@@ -49,6 +52,9 @@
         title='Titles by type'
         config={{
           showHole: true
+        }}
+        opts={{
+          reactiveToParams: true
         }}
       />
     </Column>
@@ -64,6 +70,9 @@
           ]}
           xTitle='Country'
           yTitle='Titles'
+          opts={{
+            reactiveToParams: true
+          }}
         />
       </Row>
     </Column>
@@ -78,11 +87,19 @@
           ]}
           xTitle='Country'
           yTitle='Titles'
+          opts={{
+            reactiveToParams: true
+          }}
         />
       </Row>
     </Column>
   </Row>
   <Row>
-    <Table query="titles/titles-table" class='max-w-full max-h-[500px]' />
+    <Table
+      query="titles/titles-table"
+      class='max-w-full max-h-[500px]' 
+      opts={{
+        reactiveToParams: true
+      }} />
   </Row>
 </View>
