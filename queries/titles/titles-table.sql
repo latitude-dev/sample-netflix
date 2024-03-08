@@ -1,5 +1,5 @@
 select title,
-       description,
+       concat(substr(description, 1, 80), '...') as description,
        release_year,
        runtime,
        type,
