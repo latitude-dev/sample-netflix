@@ -4,21 +4,22 @@ This is a project showcasing how to use the Latitude Framework. Latitude provide
 
 ## Demo
 
-You can find a live demo of this project at the following URL: [Live Demo →](https://latitude.so/app/share/b592cd31-1c22-40b1-bd6c-e440d98a0ac6)
-
-![image](https://github.com/latitude-dev/latitude-sdk-sample/assets/5465249/371f8e34-dbe5-4684-b684-64022cb1b38b)
+You can find a live demo of this project at the following URL: [Live Demo →](https://netflix-sample.fly.dev/)
 
 ## Developing
 
 To start developing in this project, first ensure you have Node.js >= 18 installed. Then, install the Latitude CLI:
+
 ```
-npm install -g latitude-cli
+npm install -g @latitude-data/cli
 ```
 
-After cloning the repository, run the following command to spin up the dev server:
+After cloning the repository, navigate to its folder and run the following command to spin up the dev server:
+
 ```
 latitude dev
 ```
+
 This will start the server in development mode, and you can access the application at `http://localhost:3000`.
 
 ## Documentation
