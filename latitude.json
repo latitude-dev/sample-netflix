@@ -1,5 +1,5 @@
 {
-    "projectName": "sample-netflix",
-    "appVersion": "0.0.18",
-    "deployPlatform": "nodejs"
-  }
+  "projectName": "sample-netflix",
+  "appVersion": "0.0.19",
+  "deployPlatform": "nodejs"
+}
