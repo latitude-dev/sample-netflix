@@ -1,22 +1,22 @@
 <svelte:head>
   <title>Netflix Analysis</title>
 </svelte:head>
-<View class="gap-8 p-8">
-  <Row class="gap-8">
-    <Column class="basis-4/12">
+<View class="gap-4 p-4 md:p-8">
+  <Row class="flex flex-col md:flex-row gap-8">
+    <Column class="md:basis-4/12 flex flex-col">
       <Row>
         <Text.H1 class="font-bold">Netflix Analysis</Text.H1>
       </Row>
       <Row>
         <Text.H4>This data app shows titles added to Netflix over the years.</Text.H4>
       </Row>
-      <Row class="mt-8 gap-4">
+      <Row class="mt-4 md:mt-8 gap-4">
         <Input param="start_year" type="number" value="2000" />
         <Input param="end_year" type="number" value="2024" />
       </Row>
       <Row>
         <RunButton
-          class="mt-8"
+          class="mt-4 md:mt-8"
           queries={[
             "titles/titles-year-type",
             "titles/titles-type",
@@ -29,7 +29,7 @@
         </RunButton>
       </Row>
     </Column>
-    <Column class="basis-4/12">
+    <Column class="md:basis-4/12">
       <MixedChart
         query='titles/titles-year-type'
         x='release_year'
@@ -44,7 +44,7 @@
         }}
       />
     </Column>
-    <Column class="basis-4/12">
+    <Column class="md:basis-4/12">
       <PieChart
         query='titles/titles-type'
         x='type'
@@ -59,8 +59,8 @@
       />
     </Column>
   </Row>
-  <Row class="gap-8">
-    <Column class="basis-6/12">
+  <Row class="flex flex-col md:flex-row gap-4">
+    <Column class="md:basis-6/12">
       <Row>
         <MixedChart
           query='titles/titles-top-countries'
@@ -76,7 +76,7 @@
         />
       </Row>
     </Column>
-    <Column class="basis-6/12">
+    <Column class="md:basis-6/12">
       <Row>
         <MixedChart
           query='titles/titles-type-top-countries'
@@ -97,7 +97,7 @@
   <Row>
     <Table
       query="titles/titles-table"
-      class='max-w-full max-h-[500px]' 
+      class='w-full max-h-[500px]' 
       opts={{
         reactiveToParams: true
       }} />
