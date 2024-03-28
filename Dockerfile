@@ -1,14 +1,17 @@
-FROM node:18
+FROM node:18 AS builder
+
+RUN npm install -g @latitude-data/cli
+
+FROM builder AS runner
 
 WORKDIR /usr/src/app
 
-COPY .latitude/app/package*.json ./
+COPY . .
 
-RUN npm install
+RUN latitude telemetry --disable
+RUN latitude build
 
-COPY .latitude/app .
-
-RUN npm run build
+WORKDIR /usr/src/app/build
 
 EXPOSE 3000
 
