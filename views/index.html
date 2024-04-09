@@ -31,6 +31,7 @@
     </Column>
     <Column class="md:basis-4/12">
       <MixedChart
+        download
         query='titles/titles-year-type'
         x='release_year'
         y={[
@@ -48,6 +49,7 @@
     </Column>
     <Column class="md:basis-4/12">
       <PieChart
+        download
         query='titles/titles-type'
         x='type'
         y='count'
@@ -66,6 +68,7 @@
     <Column class="md:basis-6/12">
       <Row>
         <MixedChart
+          download
           query='titles/titles-top-countries'
           x='main_country'
           y={[
@@ -84,6 +87,7 @@
     <Column class="md:basis-6/12">
       <Row>
         <MixedChart
+          download
           query='titles/titles-type-top-countries'
           x='main_country'
           y={[
@@ -103,6 +107,7 @@
   </Row>
   <Row>
     <Table
+      download
       query="titles/titles-table"
       class='w-full max-h-[500px]'
       opts={{
