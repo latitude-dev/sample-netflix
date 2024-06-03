@@ -1,7 +1,7 @@
 with t1 as (
     select main_country,
            count(*) as count
-    from { ref('titles/titles') }
+    from { ref('titles') }
     where clean_countries[1] != ''
     group by 1
     order by 2 desc

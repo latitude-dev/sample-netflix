@@ -5,5 +5,5 @@ select title,
        type,
        imdb_score,
        main_country
-from { ref('titles/titles') }
+from { ref('titles') }
 limit 100
